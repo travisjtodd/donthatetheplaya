@@ -31,7 +31,9 @@
    == | == HELPERS
 
    ====================================================================================================== */
-
+.icon {
+  font-family:'icon';
+}
 
 .transition (@property: all, @time: .10s) {
   transition: @property @time linear;
@@ -141,7 +143,9 @@ td { vertical-align: top; }
    ====================================================================================================== */
 
 
-
+* {
+  text-decoration:none;
+}
 
 
 
@@ -172,7 +176,46 @@ td { vertical-align: top; }
    == | == MODULAR
 
    ====================================================================================================== */
+.playa {
+  position:absolute;
+  top:0; left:0;
 
+  width:100%; height:100%;
+  
+  background-color:grey;
+}
+
+.playa-playpause {
+  .icon;
+
+  position:absolute;
+  top:50%; left:50%;
+  margin-top:-.5em; margin-left:-.5em; 
+
+  width:1em; height:1em;
+  border-radius:5em;
+
+  text-align:center;
+  line-height:1em;
+
+  font-size:10em;
+
+  background-color: lightgrey;
+
+}
+
+.playa-bar {
+  position:absolute;
+  bottom:2em; left:5%;
+  width:90%; height:1em;
+
+  background-color:darkgrey;
+}
+
+.playa-bar-played {
+  height:100%;
+  background-color:white;
+}
 
 
 
