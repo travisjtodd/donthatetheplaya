@@ -18,11 +18,18 @@ var playlist = [
 
 console.log(playlist[0].artist);
 
-$(function() {
+function initPlayer() {
   $( 'audio' ).audioPlayer({
   	classPrefix: 'playa',
 
   	strPlay: '&#9654;',
   	strPause: '&#8214;'
   });
+}
+
+
+
+$(document).ready(function(){
+  $('#playa').attr('src', 'music/'+playlist[0].filename);
+  initPlayer();
 });
