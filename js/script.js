@@ -44,33 +44,34 @@ function cueTrack(i){
   $('#cover').attr('src', 'img/art/'+playlist[i].image)
 }
 
+
+
 function skipTrack(direction){
-  if ( $('.playa').hasClass('playa-playing') ) {
-    var playing = true;
-    $('.playa').find('.playa-playpause').trigger('click');
-  }
 
   if ( direction == 'previous') {
-    if (i == 0) {
-      i = l;
-    } else {
-      i--;
-    }
+    if ( i == 0 ) { i = l; } else { i--; }
   }
 
   if ( direction == 'next') {
-    if (i == l) {
-      i = 0;
-    } else {
-      i++;
-    }
+    if (i == l) { i = 0; } else { i++; }
   }
+  
 
-  console.log(i);
 
-  cueTrack(i);
+  $('.playa-info').fadeOut(100, function(){
 
-  if (playing == true) $('.playa').find('.playa-playpause').trigger('click');
+    if ( $('.playa').hasClass('playa-playing') ) {
+      var playing = true;
+      $('.playa').find('.playa-playpause').trigger('click');
+    }
+    cueTrack(i);
+
+    if (playing == true) $('.playa').find('.playa-playpause').trigger('click');
+
+    $('.playa-info').fadeIn(1000);
+  });
+
+  
 }
 
 
