@@ -24,6 +24,9 @@
    ====================================================================================================== */
 @white:   #ffffff;
 
+@black:   #181818;
+@darkgrey:#222222;
+
 
 
 /* ======================================================================================================
@@ -147,7 +150,13 @@ td { vertical-align: top; }
   text-decoration:none;
 }
 
+body {
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Ultra Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 100;
 
+  background-color: @darkgrey;
+  color:@white;
+}
 
 
 
@@ -166,7 +175,11 @@ td { vertical-align: top; }
    == | == GENERAL STYLES
 
    ====================================================================================================== */
+a {
+  color:@white;
+}
 
+a:visited {color:@white;}
 
 
 
@@ -182,83 +195,121 @@ td { vertical-align: top; }
 
   width:100%; height:100%;
   
-  background-color:grey;
+}
+
+.playa-time, .playa-volume {
+  display:none;
 }
 
 .playa-playpause {
   .icon;
 
   position:absolute;
-  left:50%;
-  margin-top:-.5em; margin-left:-.5em; 
+  top:65%; left:50%;
+  margin-top:36px; margin-left:-54px; 
 
-  width:1em; height:1em;
-  border-radius:.5em;
+  width:108px; height:108px;
+  border-radius:50%;
 
   text-align:center;
-  line-height:1em;
+  line-height:108px;
 
-  font-size:10em;
+  font-size:144px;
 
   background-color: lightgrey;
 }
 
 .playa-stopped .playa-playpause {
-  padding-left:.06em;
+  padding-left:8px;
 }
 
 .playa-bar {
   position:absolute;
-  top:50%; left:5%;
-  width:90%; height:1em;
+  top:65%; left:5%; right:5%;
+  height:12px;
 
-  background-color:darkgrey;
+  //background-color:darkgrey;
+
+  &:before {
+    content:"";
+    position: absolute;
+    top:50%; left:0; 
+    margin-top:-1px;
+    width:100%; height:2px;
+
+    background-color:fadeout(@white,90%);
+  }
 }
 
-.playa-bar-played {
-  height:100%;
-  background-color:white;
+.playa-bar-played, .playa-bar-loaded {
+  position:absolute;
+  top:50%; left:0; 
+  margin-top:-1px;
+  height:2px;
 }
+
+.playa-bar-played { background-color:white; }
+.playa-bar-loaded { background-color:fadeout(@white,70%); }
 
 .playa-skip {
   .icon;
 
   position:absolute;
+  top:65%;
 
-  margin-top:-.5em;
+  margin-top:60px;
 
-  width:1em; height:1em;
-  border-radius:.5em;
+  width:60px; height:60px;
+  border-radius:50%;
 
   text-align:center;
-  line-height:1em;
+  line-height:60px;
 
-  font-size:6em;
+  font-size:60px;
 
   background-color: lightgrey;
 }
 
 .playa-skip.next {
-  left:50%; margin-left:1em;
-  padding-left:.06em;
+  left:50%; margin-left:72px;
+  padding-left:4px;
 }
 
 .playa-skip.previous {
-  right:50%; margin-right:1em;
-  padding-right:.06em;
+  right:50%; margin-right:72px;
+  padding-right:4px;
 }
 
 .playa-playpause, .playa-skip {
-  top:70%;
+  background-color:fadeout(@white,95%);
+
+  border-width:2px;
+  border-style:solid;
+  border-color:fadeout(@white,90%);
 }
+
+
 
 .playa-display {
   position:absolute;
-  bottom:50%; left:10%; right:10%;
+  bottom:35%; left:5%; right:5%;
+  margin-bottom:12px;
 
   text-align:center;
+
+  font-size:48px;
+  letter-spacing:2px;
 }
 
+.playa-cover {
+  position:absolute;
+  bottom:35%; left:50%;
+  margin-bottom:96px; margin-left:-120px;
+
+  display:block;
+  width:240px;
+  height:240px;
+}
 
 
 /* ======================================================================================================

@@ -2,17 +2,20 @@ var playlist = [
   {
   	'artist':'MJ Cole',
   	'title':'Sincere',
-  	'filename':'mjcole-sincere.mp3'
+  	'filename':'mjcole-sincere.mp3',
+    'image':'mjcole-sincere.jpg'
   },
   {
   	'artist':'Boards of Canada',
   	'title':'Cold Earth',
-  	'filename':'boardsofcanada-coldearth.mp3'
+  	'filename':'boardsofcanada-coldearth.mp3',
+    'image':'boardsofcanada-tomorrowsharvest.jpg'
   },
   {
   	'artist':'Cloud 9',
   	'title':'Do You Want Me Baby? (Dusky Remix)',
-  	'filename':'cloud9-doyouwantmebaby-duskyremix.mp3'
+  	'filename':'cloud9-doyouwantmebaby-duskyremix.mp3',
+    'image':'cloud9-doyouwantmebaby.jpg'
   },
 ];
 
@@ -38,6 +41,7 @@ function cueTrack(i){
   $('#playa').attr('src', 'music/'+playlist[i].filename);
   $('#display .artist').text(playlist[i].artist);
   $('#display .title').text(playlist[i].title);
+  $('#cover').attr('src', 'img/art/'+playlist[i].image)
 }
 
 function skipTrack(direction){
