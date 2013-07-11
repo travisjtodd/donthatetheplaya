@@ -16,7 +16,14 @@ var playlist = [
   },
 ];
 
+
+console.log(playlist.length);
 console.log(playlist[0].artist);
+
+var i = 0;
+
+var l = playlist.length-1;
+
 
 function initPlayer() {
   $( 'audio' ).audioPlayer({
@@ -27,9 +34,55 @@ function initPlayer() {
   });
 }
 
+function cueTrack(i){
+  $('#playa').attr('src', 'music/'+playlist[i].filename);
+  $('#display .artist').text(playlist[i].artist);
+  $('#display .title').text(playlist[i].title);
+}
+
+function skipTrack(direction){
+  if ( $('.playa').hasClass('playa-playing') ) {
+    var playing = true;
+    $('.playa').find('.playa-playpause').trigger('click');
+  }
+
+  if ( direction == 'previous') {
+    if (i == 0) {
+      i = l;
+    } else {
+      i--;
+    }
+  }
+
+  if ( direction == 'next') {
+    if (i == l) {
+      i = 0;
+    } else {
+      i++;
+    }
+  }
+
+  console.log(i);
+
+  cueTrack(i);
+
+  if (playing == true) $('.playa').find('.playa-playpause').trigger('click');
+}
+
 
 
 $(document).ready(function(){
-  $('#playa').attr('src', 'music/'+playlist[0].filename);
+  $('.playa-skip').click(function(){
+    var direction;
+    if ( $(this).hasClass('previous') ) direction = 'previous';
+    if ( $(this).hasClass('next') ) direction = 'next';
+    skipTrack(direction);
+  });
+});
+
+
+
+$(document).ready(function(){
+  cueTrack(i);
   initPlayer();
 });
