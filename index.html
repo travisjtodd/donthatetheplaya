@@ -9,7 +9,7 @@
   <title></title>
   <meta name="description" content="">
 
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <link rel="shortcut icon" id="favicon" href="img/favicon.png" type="image/png">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
@@ -26,6 +26,7 @@
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <div id="background" class="playa-background"><img /></div>
   <div class="playa-container">
     <audio id="playa" src="" preload="auto" controls loop></audio>
     <div class="playa-skip previous">&#9194;</div>
@@ -36,10 +37,10 @@
     </div>
   </div>
   <div class="nav">
-    <a class="radio on">&#9835;</a>
-    <a class="navigation">&#59176;</a>
-    <a class="aircon">&#128168;</a>
-    <a class="phone">&#128241;</a>
+    <a class="radio on"><span>&#9835;</span>Porsche Radio</a>
+    <a class="navigation"><span>&#59176;</span>Navigation</a>
+    <a class="aircon"><span>&#128168;</span>Air Conditioning</a>
+    <a class="phone"><span>&#128241;</span>iPhone</a>
   <div>
 
 
@@ -52,6 +53,8 @@
   <script src="js/libs/moment.min.js"></script>
   <script src="js/libs/jquery.cookie.js"></script>
 -->
+  <script src="js/libs/jquery.imagesloaded.js"></script>
+  <script src="js/libs/blur.min.js"></script>
   <script src="js/libs/audioplayer.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>

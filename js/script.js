@@ -1,3 +1,17 @@
+/*
+if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+    var viewportmeta = document.querySelector('meta[name="viewport"]');
+    if (viewportmeta) {
+        viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0';
+        document.body.addEventListener('gesturestart', function () {
+            viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+        }, false);
+    }
+}
+*/
+
+
+
 var playlist = [
   {
   	'artist':'MJ Cole',
@@ -41,7 +55,8 @@ function cueTrack(i){
   $('#playa').attr('src', 'music/'+playlist[i].filename);
   $('#display .artist').text(playlist[i].artist);
   $('#display .title').text(playlist[i].title);
-  $('#cover').attr('src', 'img/art/'+playlist[i].image)
+  $('#cover').attr('src', 'img/art/'+playlist[i].image);
+  $('#background img').attr('src', 'img/art/bg/'+playlist[i].image)
 }
 
 
@@ -55,10 +70,10 @@ function skipTrack(direction){
   if ( direction == 'next') {
     if (i == l) { i = 0; } else { i++; }
   }
-  
 
 
-  $('.playa-info').fadeOut(100, function(){
+
+  $('#cover, #background, #display').fadeOut(200, function(){
 
     if ( $('.playa').hasClass('playa-playing') ) {
       var playing = true;
@@ -68,7 +83,13 @@ function skipTrack(direction){
 
     if (playing == true) $('.playa').find('.playa-playpause').trigger('click');
 
-    $('.playa-info').fadeIn(1000);
+    $('#display').fadeIn(1000);
+    
+    $('#cover, #background').imagesLoaded(function(){
+      $('#cover, #background').fadeIn(1000);
+    });
+    
+
   });
 
   
